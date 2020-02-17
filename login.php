@@ -1,6 +1,6 @@
 <?php
-require('config/config.php');
-require('config/db.php');
+include('config/config.php');
+include('config/db.php');
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
