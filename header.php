@@ -9,5 +9,6 @@
 
 <body>
     <nav class="navbar">
-        <a href="main.php" class="nav item">Main</a>
-        <a href="timelog.php" class="nav-item">Checar horários</a>
+        <a href="main.php" class="nav item">Registrar Ponto</a>
+        <a href="checktime.php" class="nav-item">Checar horários</a>
+    </nav>

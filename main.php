@@ -18,7 +18,8 @@ if (isset($_POST['btn-start'])) {
         VALUES ('$id', '$day', '$hour')";
         $result = mysqli_query($conn, $query);
         if ($result == true) {
-            echo "Entrada do dia" . $day . "as" . $hour .  "registrada";
+            $alert = "Entrada do dia " . $day . " as " . $hour .  " registrada";
+            echo "<script type='text/javascript'>alert('$alert');</script>";
         }
     } else {
         $alert = "Já há um horário registrado";
@@ -37,9 +38,7 @@ if (isset($_POST['btn-exit'])) {
         } else {
             $hora_ent = strtotime($day . $arr["horario_ent"]);
             $hora_saida = strtotime(date('Y/m/d H:i:s'));
-            echo $hora_ent . ' ' . $hora_saida . '<br>';
             $horas_trab = ($hora_saida - $hora_ent) / 3600;
-            echo $horas_trab;
             $query = "UPDATE horarios
             SET
                 horario_saida = '$hour',
@@ -47,18 +46,19 @@ if (isset($_POST['btn-exit'])) {
             WHERE 
                 id = '$id' AND data = '$day';";
             $result = mysqli_query($conn, $query);
-            var_dump($result);
             if ($result == TRUE) {
-                echo "Saida do dia" . $day . "as" . $hour .  "registrada";
+                $alert = "Saida do dia " . $day . " as " . $hour .  " registrada";
+                echo "<script type='text/javascript'>alert('$alert');</script>";
             }
         }
     }
 }
+mysqli_close($conn);
 ?>
 
 <?php include("header.php"); ?>
-<p>Welcome <?php echo $_SESSION['name']; ?>! </p>
-<h1>Main</h1>
+<h2>Bem-vindo(a) <?php echo $_SESSION['name']; ?>! </h2>
+<h1>Registrar ponto</h1>
 <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
     <input type="submit" name="btn-start" value="Registrar entrada" class="btn btn-start">
 </form>
