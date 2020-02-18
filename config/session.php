@@ -3,10 +3,10 @@ include('db.php');
 session_start();
 
 $user_id = mysqli_real_escape_string($conn, $_SESSION['id']);
-/*if (!isset($_SESSION['id'])) {
+if (!isset($_SESSION['id'])) {
     header("Location: login.php");
     die();
-}*/
+}
 
 //Get employee info
 
