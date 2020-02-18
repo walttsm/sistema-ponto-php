@@ -11,4 +11,5 @@
     <nav class="navbar">
         <a href="main.php" class="nav item">Registrar Ponto</a>
         <a href="checktime.php" class="nav-item">Checar horários</a>
+        <a href="logout.php" class="nav-item">Logout</a>
     </nav>

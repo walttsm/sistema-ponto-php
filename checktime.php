@@ -21,9 +21,10 @@ echo "
         <th>data</th>
         <th>horario_ent</th>
         <th>horario_saida</th>
+        <th>horas_trabalhadas</th>
     </tr>";
 while ($row = mysqli_fetch_array($result)) {
-    echo "<tr><td>" . $row['data'] . '</td><td> ' . $row['horario_ent'] . '</td><td> ' . $row['horario_saida'] . "</td></tr>";
+    echo '<tr><td class="cell">' . $row["data"] . '</td><td class="cell"> ' . $row["horario_ent"] . '</td><td class="cell"> ' . $row["horario_saida"] . '</td><td class="cell"> ' . $row["horas_trabalhadas"] . '</td></tr>';
 }
 echo "</table>"
 ?>
