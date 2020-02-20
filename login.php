@@ -2,7 +2,6 @@
 include('config/config.php');
 include('config/db.php');
 session_start();
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //Associating form data to variables
     $user_id = mysqli_real_escape_string($conn, $_POST['id']);
@@ -19,33 +18,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['id'] = $user_id;
         header("Location: main.php");
     } else {
-        echo "Incorrect user or password, please try again or contact the system admin";
+        $alert = "Incorrect user or password, please try again or contact the system admin";
+        echo "<script type='text/javascript'>alert('$alert');</script>";
     }
 }
-
-
-
-
 mysqli_close($conn);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Login</title>
 </head>
 
-<body>
-    <h1>Login</h1>
-    <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
-        <label for="id">Id: </label>
-        <input type="text" name="id"> <br>
-        <label for="password">Password: </label>
-        <input type="password" name="password"> <br>
-        <input type="submit" name="login" value="submit" class="btn">
-    </form>
+<body class="login-page">
+    <div class="container">
+        <h1>Login</h1>
+        <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
+            <div class="row">
+                <div class="column1">
+                    <label for="id">Id: </label>
+                </div>
+                <div class="column2">
+                    <input type="text" name="id"> <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column1">
+                    <label for="password">Password: </label>
+                </div>
+
+                <div class="column2">
+                    <input type="password" name="password"> <br>
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" name="login" value="Login" class="btn btn-login">
+            </div>
+        </form>
 </body>
 
 </html>
