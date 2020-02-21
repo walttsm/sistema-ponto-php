@@ -1,24 +1,23 @@
 <?php
 include('config/config.php');
 include('config/db.php');
-session_start();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //Associating form data to variables
-    $user_id = mysqli_real_escape_string($conn, $_POST['id']);
+    $admin_id = mysqli_real_escape_string($conn, $_POST['login']);
     $user_pass = mysqli_real_escape_string($conn, $_POST['password']);
 
     //Get if user is in table:
-    $query = "SELECT id FROM funcionarios WHERE id = '$user_id' and password = '$user_pass'";
+    $query = "SELECT * FROM admins WHERE login = '$admin_id' and password = '$user_pass'";
     $result = mysqli_query($conn, $query);
 
     $count = mysqli_num_rows($result);
 
     // Checks if user is valid
     if ($count == 1) {
-        $_SESSION['id'] = $user_id;
-        header("Location: main.php");
+        header("Location: admin.php");
     } else {
-        $alert = "Incorrect user or password, please try again or contact the system admin";
+        $alert = "Incorrect user or password";
         echo "<script type='text/javascript'>alert('$alert');</script>";
     }
 }
@@ -37,14 +36,14 @@ mysqli_close($conn);
 
 <body class="login-page">
     <div class="container">
-        <h1>Login</h1>
+        <h1>Admin Login</h1>
         <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
             <div class="row">
                 <div class="column1">
-                    <label for="id">Id: </label>
+                    <label for="login">Login: </label>
                 </div>
                 <div class="column2">
-                    <input type="text" name="id"> <br>
+                    <input type="text" name="login" value="adm"> <br>
                 </div>
             </div>
             <div class="row">
@@ -53,14 +52,13 @@ mysqli_close($conn);
                 </div>
 
                 <div class="column2">
-                    <input type="password" name="password"> <br>
+                    <input type="password" name="password" value="adm"> <br>
                 </div>
             </div>
             <div class="row">
-                <input type="submit" name="login" value="Login" class="btn btn-login">
+                <input type="submit" name="submit" value="Login" class="btn btn-login">
             </div>
         </form>
-        <a href="admin-login.php"><button class="btn btn-admin">Admin</button></a>
 </body>
 
 </html>
