@@ -10,7 +10,6 @@
 
 <body>
     <nav class="navbar">
-        <a href="main-admin.php" class="navbar nav-item">Registrar Ponto</a>
-        <a href="checktime-admin.php" class="navbar nav-item">Checar horários</a>
+        <a href="admin.php" class="navbar nav-item">Home</a>
         <a href="logout.php" class="navbar nav-item logout">Logout</a>
     </nav>
