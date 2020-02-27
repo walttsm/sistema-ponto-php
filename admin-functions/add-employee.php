@@ -18,10 +18,8 @@
 if (isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $pass = mysqli_escape_string($conn, $_POST['password']);
-    echo $name . $pass;
     $query = "INSERT INTO funcionarios(nome, password) VALUES ('$name', '$pass')";
     $result = mysqli_query($conn, $query);
-    var_dump($result);
     if ($result == TRUE) {
         $alert = "O funcionario foi incluido com sucesso!";
         echo "<script type='text/javascript'>alert('$alert')</script>";

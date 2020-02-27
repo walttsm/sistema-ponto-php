@@ -37,6 +37,7 @@ h3 {
 
 label {
   float: right;
+  align-self: center;
 }
 
 .column2 {
@@ -141,4 +142,19 @@ table {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.menu.form {
+  list-style-type: none;
+}
+
+.table-top {
+  margin-top: 0px;
 }
