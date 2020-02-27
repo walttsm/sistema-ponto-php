@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['id'] = $user_id;
         header("Location: main.php");
     } else {
-        $alert = "Incorrect user or password, please try again or contact the system admin";
+        $alert = "Id ou senha incorretos, tente novamente ou contate o administrador.";
         echo "<script type='text/javascript'>alert('$alert');</script>";
     }
 }
@@ -55,6 +55,9 @@ mysqli_close($conn);
                 <div class="column2">
                     <input type="password" name="password"> <br>
                 </div>
+            </div>
+            <div class="row">
+                <a href="forgot-password.php">Esqueci minha senha</a>
             </div>
             <div class="row">
                 <input type="submit" name="login" value="Login" class="btn btn-login">

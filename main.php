@@ -8,7 +8,6 @@ date_default_timezone_set("America/Sao_Paulo");
 $id = $_SESSION['id'];
 $day = date('Y/m/d');
 $hour = date('H:i:s');
-echo $day . " + " . $hour . "<br>";
 //query to include dates
 if (isset($_POST['btn-start'])) {
     $query = "SELECT * FROM horarios WHERE id = '$id' AND data = '$day'";
